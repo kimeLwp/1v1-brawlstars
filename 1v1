@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Brawl Stars 1v1</title>
+  <style>
+    body { font-family: Arial; text-align: center; padding: 30px; background: #f9f9f9; }
+    input, button { padding: 10px; margin: 10px; font-size: 16px; }
+    .box { background: white; padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>Brawl Stars 1v1</h1>
+    <p>Wpisz dane graczy:</p>
+    <input type="text" id="player1" placeholder="Nick Gracza 1">
+    <input type="text" id="tag1" placeholder="Tag Gracza 1"><br>
+    <input type="text" id="player2" placeholder="Nick Gracza 2">
+    <input type="text" id="tag2" placeholder="Tag Gracza 2"><br>
+    <button onclick="startMatch()">Rozpocznij 1v1</button>
+
+    <h2 id="result"></h2>
+  </div>
+
+  <script>
+    function startMatch() {
+      const p1 = document.getElementById("player1").value;
+      const p2 = document.getElementById("player2").value;
+
+      if (!p1 || !p2) {
+        alert("Wpisz nicki obu graczy!");
+        return;
+      }
+
+      const starter = Math.random() < 0.5 ? p1 : p2;
+      document.getElementById("result").innerText = `Gotowi do walki! ${starter} zaczyna jako pierwszy.`;
+    }
+  </script>
+</body>
+</html>
